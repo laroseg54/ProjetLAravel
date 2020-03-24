@@ -28,8 +28,6 @@ class HomeController extends Controller
 //                 echo $post->post_content;
 // }
 
-
-        //return view('pages.welcome')->with('title', $title);
     }
 
 }

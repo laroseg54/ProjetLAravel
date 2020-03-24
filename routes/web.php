@@ -26,10 +26,11 @@ Route::get('/users/{id}', function($id) {
 */
 
 Route::get('/', 'HomeController@index'); 
-Route::get('/articles', 'ArticlesController@articles'); 
-Route::get('/contact', 'ContactController@contact'); 
 
-Route::get('articles/{post_name}', 'PostsController@show');
+Route::get('/articles/{post_name}', 'PostsController@show');
+Route::get('/articles', 'PostsController@articles'); 
+
+Route::get('/contact', 'ContactController@contact'); 
 Route::post('/contact', 'ContactController@store');
 
 

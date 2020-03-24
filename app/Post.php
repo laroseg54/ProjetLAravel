@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    // Table name 
+    protected $table = 'posts'; 
+
 
     /**
     * Get the user that authored the post.
@@ -15,7 +18,5 @@ class Post extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
-
-    // Table name 
-    protected $table = 'posts'; 
+    
 }

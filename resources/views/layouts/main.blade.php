@@ -5,15 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Blog | Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
 </head>
   <body>
 
     <!-- Start Top Bar -->
-    <div class="top-bar">
+    <div class="navbar navbar-dark bg-dark">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text">Blog</li>
+          <li class="nav-link">Blog</li>
           <li><a href="/">Home</a></li>
           <li><a href="articles">Articles</a></li>
           <li><a href="contact">Contact</a></li>
@@ -21,13 +23,7 @@
       </div>
     </div>
     <!-- End Top Bar -->
-
-    <div class="callout large primary">
-      <div class="row column text-center">
-        <h1>Welcome to Our Blog</h1>
-        <h2 class="subheader">Such a Simple Blog Layout</h2>
-      </div>
-    </div>
+    
 
     <!-- We can now combine rows and columns when there's only one column in that row -->
     <div class="row medium-8 large-7 columns">
