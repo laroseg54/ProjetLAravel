@@ -13,7 +13,7 @@ class ContactRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,9 @@ class ContactRequest extends FormRequest
     {
         return [
             'nom' => 'bail|required|between:5,20|alpha',
+            'prenom' => 'bail|required|between:5,20|alpha',
             'email' => 'bail|required|email',
+            'subject' => 'bail|required',
             'message' => 'bail|required'
         ];
     }
