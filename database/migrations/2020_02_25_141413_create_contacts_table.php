@@ -17,7 +17,7 @@ class CreateContactsTable extends Migration
 
             $table->increments('id');
             $table->timestamps('');
-            $table->dateTime('date');
+            $table->string('contact_subject'); 
             $table->string('contact_message'); 
             $table->mediumText('contact_name');
             $table->mediumText('contact_email');
