@@ -11,14 +11,10 @@
 |
 */
 
-
-
 /*
 Route::get('/hello', function () {
     return "<h1> Hello world </h1>";
 });
-
-
 // Pour créer une route dynamique 
 Route::get('/users/{id}', function($id) {
     return "This is user " . $id; 
@@ -32,11 +28,4 @@ Route::get('/articles', 'PostsController@articles');
 
 Route::get('/contact', 'ContactController@contact'); 
 Route::post('/contact', 'ContactController@store');
-
-
-
-
-
-
-
 
