@@ -6,28 +6,26 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index() {
-     /*try{
-        var_dump(\App\Post::get());die();
-        
-    }catch (Exception $e) {
-            echo ($e);
-    
-            
-        }*/
-        
-         $posts = \App\Post::latest('created_at')->take(3)->get();
-        
-         return view('pages.welcome', array(
-             'posts' => $posts
-         ));
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
 
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+       
+        $posts = \App\Post::latest('created_at')->take(3)->get();
         
-//          $posts = \App\User::find(1)->posts; //get posts from user id 1
-//          foreach ($posts as $post) {
-//                 echo $post->post_content;
-// }
+        return view('pages.welcome', array(
+            'posts' => $posts
+        ));
 
     }
-
 }
