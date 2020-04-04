@@ -9,14 +9,14 @@ class PostsController extends Controller
     public function show($post_name) {
 
         $post = \App\Post::where('post_name', $post_name)->first(); //get first post with post_nam==$post_name
-        return view('posts/single', array(  //Pass the post to the view
+        return view('posts.single', array(  //Pass the post to the view
             'post' => $post 
         ));
     }
 
     public function articles() {
 
-        $posts = \App\Post::paginate(10);
+        $posts = \App\Post::all();
         $posts= $posts->where('post_type','=','article');
         $data = array(
             'articles'=>$posts

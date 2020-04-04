@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="container">
-<h1> Nous contacter WALLAH! </h1>
+<h1> Nous contacter !! </h1>
 <form  method="POST" action="{{ url('contact')}}">
         {{ csrf_field() }}
 

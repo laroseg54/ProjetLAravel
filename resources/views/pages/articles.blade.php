@@ -7,7 +7,7 @@
 @if(count($articles) > 0)
 <ul class="list-group">
     @foreach ($articles as $article)
-        <li class="list-group-item">{{$article->post_title}} </li>
+        <li class="list-group-item"><a href="http://localhost:8000/articles/{{$article->post_name}}">{{$article->post_title}}</a> </li>
     @endforeach
 
 </ul>
