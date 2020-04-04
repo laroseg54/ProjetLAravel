@@ -13,6 +13,7 @@ class ContactController extends Controller
     }
 
     public function store(ContactRequest $request){
+      
         $contact = new \App\Contact;
         $contact->contact_name = request('nom');
         $contact->contact_email = request('email');

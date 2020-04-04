@@ -16,14 +16,16 @@ class CommentsController extends Controller
 
 
     public function store(CommentRequest $request) {
-        $post = Post::find($request->post_id); 
-
+        
+    
+       
         Comment::create([
             'content' =>$request->content,
-            'post_id' => $post->id
+            'post_id' => $request->post_id,
+            'user_id'=> $request->user_id
         ]);
 
-        return back();
+        return redirect()->back()->with('success', 'Merci pour votre commentaire');
     }
 
    

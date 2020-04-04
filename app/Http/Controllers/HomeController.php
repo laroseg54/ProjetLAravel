@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
+      
         $posts = \App\Post::latest('created_at')->take(3)->get();
         
         return view('pages.welcome', array(
