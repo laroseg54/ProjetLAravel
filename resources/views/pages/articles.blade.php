@@ -4,15 +4,25 @@
 <div class="container">
     <h1> Liste des Articles  </h1>
 
+
+<p><button type="button" ><a class="btn btn-warning " href="{{route('articles.create')}}">Ajouter un article</a> </button>
+@if(Auth::check())
+<button type="button" ><a class="btn btn-info " href="{{route('user_articles',Auth::user()->id)}}">Voir mes articles</a> </button></p> <br />
+@endif
+<div>
 @if(count($articles) > 0)
-<ul class="list-group">
+
     @foreach ($articles as $article)
-        <li class="list-group-item"><a href="http://localhost:8000/articles/{{$article->post_name}}">{{$article->post_title}}</a> </li>
+    <ul class="list-group">
+        <li class="list-group-item"><b>{{$article->post_title}}</b> </li>
+        <li class="list-group-item">{{substr($article->post_content,0,200)}} ....  <a href={{route('articles.show',$article->id)}}>Lire la suite de l'article </a></li>
+      
+    </ul>
     @endforeach
 
-</ul>
-</div>
 
+</div>
+</div>
 @endif
 
 @endsection

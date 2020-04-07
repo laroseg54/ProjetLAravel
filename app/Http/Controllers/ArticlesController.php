@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Post; 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
+
+
+
+    public function __construct()
+    {
+     
+        $this->middleware('auth', ['except' => ['index','show']]);
+     
+
+      
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,12 +27,12 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $posts = \App\Post::all();
+        $posts = Post::all();
         $posts= $posts->where('post_type','=','article');
         $data = array(
             'articles'=>$posts
         );
-        return view('admin.index')->with($data); 
+        return view('pages.articles')->with($data); 
     }
 
     /**
@@ -29,7 +42,9 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('admin.create'); 
+        
+         return view('articles.create'); 
+        
     }
 
     /**
@@ -38,9 +53,20 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        
+        Post::create([
+        'user_id'=> $request->author,
+        'post_content'=>$request->content,
+        'post_title'=>$request->title,
+        'post_status'=>'blabla',
+        'post_type'=>'article',
+        'post_category'=> 'DCISS',
+        'post_name' => 'Monia'
+
+
+        ]);
+        return redirect()->back()->with('success', 'Votre article a bien été enregistrée');
     }
 
     /**
@@ -51,9 +77,24 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
+        
+        $post =Post::where('id', $id)->first(); 
+        return view('articles.show', array(  //Pass the post to the view
+            'post' => $post 
+        ));
+           
+     
+    }
 
-        $posts = \App\Post::all();
-        return view('admin.show');        
+
+    public function showUserArticles($id)
+    {
+        $articles = Post::all();
+        $articles =$articles->where('user_id','=', $id);
+        $data = array(
+            'articles'=>$articles
+        );
+        return view('articles.showUserArticles')->with($data); 
      
     }
 
@@ -65,7 +106,10 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        return "this is the edit method";
+        $post =Post::where('id', $id)->first(); 
+        return view('articles.edit', array(  //Pass the post to the view
+            'post' => $post 
+        ));
     }
 
     /**
@@ -75,9 +119,21 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArticleRequest $request,  $id)
     {
-        //
+       //$post->post_title=$request->title;
+       //$post->post_content=$request->content;
+       //$post->save();
+       $post =Post::where('id', $id)->first(); 
+ 
+        
+        $post->update([ 'post_content'=>$request->content,
+         'post_title'=>$request->title,
+
+
+         ]);
+  
+        return redirect()->back()->with('success', 'Votre modification a bien été enregistrée');
     }
 
     /**

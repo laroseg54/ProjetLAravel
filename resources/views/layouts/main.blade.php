@@ -22,7 +22,7 @@
       <ul class="menu">
         <li class="nav-link">Blog</li>
         <li><a href="/">Home</a></li>
-        <li><a href="/articles">Articles</a></li>
+        <li><a href={{route('articles.index')}}>Articles</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </div>

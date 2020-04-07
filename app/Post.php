@@ -8,7 +8,9 @@ class Post extends Model
 {
     // Table name 
     protected $table = 'posts'; 
-
+    protected $fillable = [
+        'user_id', 'post_content', 'post_title', 'post_status','post_category','post_type','post_name'
+    ];
 
     /**
     * Get the user that authored the post.

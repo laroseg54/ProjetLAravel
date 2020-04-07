@@ -23,8 +23,8 @@ Route::get('/users/{id}', function($id) {
 
 Route::get('/', 'HomeController@index'); 
 
-Route::get('/articles/{post_name}', 'PostsController@show');
-Route::get('/articles', 'PostsController@articles')->middleware("auth");
+//Route::get('/articles/{post_name}', 'PostsController@show');
+//Route::get('/articles', 'PostsController@articles')->middleware("auth");
 
 Route::get('/contact', 'ContactController@contact'); 
 Route::post('/contact', 'ContactController@store');
@@ -38,5 +38,5 @@ Route::get('/administration','AdministrationController@administration')->name('a
 
 Route::post('/comments', 'CommentsController@store');
 
-
-Route::resource('/admin/articles', 'ArticlesController');
+Route::get('{user}/articles','ArticlesController@showUserArticles')->name('user_articles');
+Route::resource('/articles', 'ArticlesController');
