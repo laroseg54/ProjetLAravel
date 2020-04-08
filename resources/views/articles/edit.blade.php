@@ -9,7 +9,7 @@
 
 <form action="{{route('articles.update',$post->id)}}" method="post">
     {{ csrf_field() }}
-  @method('PUT')
+  @method('PATCH')
 
     <div class="form-group">
         <label>Modifier le titre </label>

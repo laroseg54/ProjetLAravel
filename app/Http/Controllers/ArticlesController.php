@@ -16,6 +16,7 @@ class ArticlesController extends Controller
     {
      
         $this->middleware('auth', ['except' => ['index','show']]);
+        $this->middleware('manage',['only' => ['edit','update','destroy']]);
      
 
       
