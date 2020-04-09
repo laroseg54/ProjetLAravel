@@ -4,6 +4,11 @@
 <div class="container">
     <h1> Liste des Articles  </h1>
 
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 
 <p><button type="button" ><a class="btn btn-warning " href="{{route('articles.create')}}">Ajouter un article</a> </button>
 @if(Auth::check())
