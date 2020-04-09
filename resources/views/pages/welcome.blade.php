@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="jumbotron text-center">
-  <h1 class="display-4">Welcome to our first Laravel site </h1>
+  <h1 class="display-4">Bienvenue sur notre premier blog Laravel </h1>
   <p class="lead">Welcome to our brand new website</p>
 </div>
 

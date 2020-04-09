@@ -18,8 +18,7 @@
         background:#cb3b27;
         text-align:center;
         padding:10px 20px;
-        
-        
+      
     }
 
     h5{
@@ -27,7 +26,6 @@
         display: block;
     }
     
-
 
 </style>
 
@@ -39,12 +37,15 @@
 <h4>Auteur : {{$post->author->name}}</h4>
 <p>{{$post->post_content}}</p>
 </div>
-<small>Posté le : {{$post->created_at}}</small>
+<small>Posté le : {{$post->created_at->translatedFormat('l, jS F Y à H:i')}}</small>
 <hr>
 
 @if (Auth::check())
 <button id="b_commentaire">Soumettre un commentaire</button>
 <div id="div_commentaire" style="display: none ">
+
+    @if ($post->image)
+<img src="{{ asset('storage/' . $post->image )}}" alt="post-image" class="img-thumbnail">
 
 {{-- Form for the comments --}}
 <form  class="mt-4" action="{{ url('comments')}}" method="POST">
@@ -73,8 +74,8 @@
 <div id="affichage_commentaire">
 @foreach ($post->comments as $comment)
     
-    <p>{{ $comment->user->name }} le {{$comment->created_at}}</p>
     <p>{{ $comment->content }}</p>
+    <small>{{ $comment->user->name }} : {{$comment->created_at->diffForHumans()}}</small>
     <hr>
     
 

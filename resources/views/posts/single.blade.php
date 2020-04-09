@@ -32,15 +32,18 @@
 </style>
 
 <div class="container">
-<a href="/" type="button" class="btn btn-dark">Go Back</a>
+
+<a href="/articles" type="button" class="btn btn-dark">Go Back</a>
 <h2>Titre : {{$post->post_title}}</h2>
 
 <div>
 <h4>Auteur : {{$post->author->name}}</h4>
 <p>{{$post->post_content}}</p>
 </div>
-<small>Posté le : {{$post->created_at}}</small>
+<small>Posté le : {{$post->created_at->translatedFormat('l, jS F Y à H:i')}}</small>
 <hr>
+<h5><p>Commentaires<p></h5>
+
 
 @if (Auth::check())
 <button id="b_commentaire">Soumettre un commentaire</button>
@@ -68,12 +71,11 @@
     <p>Connectez vous pour soumettre un commentaire ! </p> 
 @endif
 
-<h5><p>Commentaires<p></h5>
 
 <div id="affichage_commentaire">
 @foreach ($post->comments as $comment)
     
-    <p>{{ $comment->user->name }} le {{$comment->created_at}}</p>
+    <small>{{ $comment->user->name }} le {{$comment->created_at->diffForHumans()}}</small>
     <p>{{ $comment->content }}</p>
     <hr>
     

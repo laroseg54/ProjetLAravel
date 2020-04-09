@@ -55,17 +55,19 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        Post::create([
+        $post =  Post::create([
         'user_id'=> $request->author,
         'post_content'=>$request->content,
         'post_title'=>$request->title,
         'post_status'=>'blabla',
         'post_type'=>'article',
         'post_category'=> 'DCISS',
-        'post_name' => 'Monia'
-
-
+        'post_name' => 'Monia',
+        'image' => 'jdjdjd'
         ]);
+
+        $this->storeImage($post);
+
         return redirect()->back()->with('success', 'Votre article a bien été enregistrée');
     }
 
@@ -78,8 +80,8 @@ class ArticlesController extends Controller
     public function show($id)
     {
         
-        $post =Post::where('id', $id)->first(); 
-        return view('articles.show', array(  //Pass the post to the view
+        $post = Post::where('id', $id)->first(); 
+        return view('articles.show', array( 
             'post' => $post 
         ));
            
@@ -107,7 +109,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $post =Post::where('id', $id)->first(); 
-        return view('articles.edit', array(  //Pass the post to the view
+        return view('articles.edit', array(  
             'post' => $post 
         ));
     }
@@ -126,11 +128,8 @@ class ArticlesController extends Controller
        //$post->save();
        $post =Post::where('id', $id)->first(); 
  
-        
         $post->update([ 'post_content'=>$request->content,
          'post_title'=>$request->title,
-
-
          ]);
   
         return redirect()->back()->with('success', 'Votre modification a bien été enregistrée');
@@ -144,6 +143,19 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-       return "this is the delete method";
+            // Post::find($id)->delete(); 
+            // return redirect()->back()->with('success', 'Votre articlen a bien été supprimé');
+
+            return view('articles.destroy');
+    }
+
+
+    public function storeImage(Post $post) {
+
+        if ( request('image')) {
+            $post->update([
+                'image' => request('image')->store('images', 'public')
+            ]);
+        }
     }
 }

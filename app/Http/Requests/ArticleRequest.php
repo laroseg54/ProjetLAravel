@@ -26,7 +26,8 @@ class ArticleRequest extends FormRequest
         return [
             'title'=>'bail|required|alpha',
             'content'=>'required',
-            'author'=>'required'
+            'author'=>'required',
+            'image' => 'sometimes|image|max:5000'
         ];
     }
 }
