@@ -66,6 +66,18 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+
+                                <div class="form-group-row mt-2 ml-10">
+                                    <div class="col-md-8 ">
+                                        <a href="{{url('sign-in/github')}}" class='btn btn-secondary'> Register with Github </a>
+                                    </div>
+                                </div>
+
+                                <div class="form-group-row mt-2 mr-10">
+                                    <div class="col-md-8 ">
+                                        <a href="{{url('sign-in/google')}}" class='btn btn-danger'> Register with Google </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>

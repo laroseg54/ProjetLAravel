@@ -46,6 +46,7 @@
 
     @if ($post->image)
 <img src="{{ asset('storage/' . $post->image )}}" alt="post-image" class="img-thumbnail">
+    @endif
 
 {{-- Form for the comments --}}
 <form  class="mt-4" action="{{ url('comments')}}" method="POST">
@@ -84,8 +85,6 @@
 
 </div>
 
-
-
 @endsection
 
 
@@ -103,3 +102,5 @@
   
   }
   </script>
+
+

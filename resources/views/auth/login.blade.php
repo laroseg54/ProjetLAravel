@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="form-group row">           
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -64,6 +64,25 @@
                                 @endif
                             </div>
                         </div>
+
+
+                        <div class="form-group-row mt-2 mr-3">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="/sign-in/github" class="btn btn-secondary ">
+                                    {{ __('Sign in with Github') }}
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group-row mt-2 mr-3">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="/sign-in/google" class="btn btn-danger ">
+                                    {{ __('Sign in with Google') }}
+                                </a>
+                            </div>
+                        </div>
+
+
                     </form>
                 </div>
             </div>

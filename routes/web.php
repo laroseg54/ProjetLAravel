@@ -40,3 +40,12 @@ Route::post('/comments', 'CommentsController@store');
 
 Route::get('{user}/articles','ArticlesController@showUserArticles')->name('user_articles');
 Route::resource('/articles', 'ArticlesController');
+
+//Laravel Socialite with github
+Route::get('/sign-in/{provider}', 'Auth\LoginController@provider');
+Route::get('/sign-in/{provider}/redirect', 'Auth\LoginController@redirectToProvider');
+
+
+
+// Route::get('/sign-in/google', 'Auth\LoginController@google');
+// Route::get('/sign-in/google/redirect', 'Auth\LoginController@googleRedirect');

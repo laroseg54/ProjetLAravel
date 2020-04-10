@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Socialite;
+use Hash; 
+use Str; 
+use App\User; 
 
 class LoginController extends Controller
 {
@@ -37,4 +41,37 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    public function provider($provider) {
+
+        return Socialite::driver($provider)->redirect();
+    }
+
+
+    public function redirectToProvider($provider) {
+
+         $user = Socialite::driver($provider)->user();
+
+       // Dans le cas ou le user n'existe pas
+        $user = User::firstOrCreate([
+                    'email' => $user->email
+                ], [
+        
+                    'name' => $user->name,
+                    'password' => Hash::make(Str::random(24)),
+                    'role_id' => 2
+
+                ]);
+
+        \Auth::login($user, true);
+
+        return redirect('/');
+    }
+
+ 
+ 
+
+ 
+
 }
