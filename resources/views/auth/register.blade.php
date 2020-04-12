@@ -61,21 +61,25 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
 
-                                <div class="form-group-row mt-2 ml-10">
+                                <div class="form-group row mt-2">
                                     <div class="col-md-8 ">
-                                        <a href="{{url('sign-in/github')}}" class='btn btn-secondary'> Register with Github </a>
+                                        <a href="{{url('sign-in/github')}}" class='btn btn-secondary'> 
+                                            <i class="fab fa-github"></i>
+                                            Register with Github </a>
                                     </div>
                                 </div>
 
-                                <div class="form-group-row mt-2 mr-10">
+                                <div class="form-group row mt-2">
                                     <div class="col-md-8 ">
-                                        <a href="{{url('sign-in/google')}}" class='btn btn-danger'> Register with Google </a>
+                                        <a href="{{url('sign-in/google')}}" class='btn btn-danger'>
+                                            <i class="fab fa-google"></i>
+                                            Register with Google </a>
                                     </div>
                                 </div>
                             </div>

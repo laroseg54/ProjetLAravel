@@ -24,7 +24,7 @@
       
     </ul>
     @endforeach
-
+    <br>
     {{ $articles->links() }}
 </div>
 </div>

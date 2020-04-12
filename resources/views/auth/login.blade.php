@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -69,6 +68,7 @@
                         <div class="form-group-row mt-2 mr-3">
                             <div class="col-md-6 offset-md-4">
                                 <a href="/sign-in/github" class="btn btn-secondary ">
+                                    <i class="fab fa-github"></i>
                                     {{ __('Sign in with Github') }}
                                 </a>
                             </div>
@@ -77,6 +77,7 @@
                         <div class="form-group-row mt-2 mr-3">
                             <div class="col-md-6 offset-md-4">
                                 <a href="/sign-in/google" class="btn btn-danger ">
+                                    <i class="fab fa-google"></i>
                                     {{ __('Sign in with Google') }}
                                 </a>
                             </div>

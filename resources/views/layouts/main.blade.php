@@ -10,22 +10,22 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-  
-
+ 
 </head>
 
 <body>
 
   <!-- Start Top Bar -->
   <div class="navbar navbar-dark bg-dark">
-    <div class="top-bar-left">
+    <div  id="topheader" class="top-bar-left">
       <ul class="menu">
-        <li class="nav-link">Blog</li>
-        <li><a href="/">Home</a></li>
-        <li><a href={{route('articles.index')}}>Articles</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="active">Blog</li>
+        <li  ><a href="/">Home</a></li>
+        <li ><a href={{route('articles.index')}}>Articles</a></li>
+        <li ><a  href="/contact">Contact</a></li>
       </ul>
     </div>
+
     <div class="top-bar-right">
       <ul class="menu">
         @guest
