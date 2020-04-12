@@ -28,8 +28,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        $posts= $posts->where('post_type','=','article');
+        $posts = Post::orderBy('updated_at','DESC')->where('post_type','=','article')->paginate(6);
+     
         $data = array(
             'articles'=>$posts
         );
@@ -67,7 +67,7 @@ class ArticlesController extends Controller
         'image' => 'jdjdjd'
         ]);
 
-        $this->storeImage($post);
+       // $this->storeImage($post);
 
         return redirect()->back()->with('success', 'Votre article a bien été enregistrée');
     }

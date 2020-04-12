@@ -18,7 +18,7 @@
 
     <div class="form-group">
         <label>Modifier le contenu de l'article</label>
-        <textarea class="form-control" name="content" placeholder="{{$post->post_content}}"></textarea>
+        <textarea class="form-control" id="summary-ckeditor" name="content" placeholder="{{$post->post_content}}"></textarea>
     </div>
 
     <div class="form-group">
@@ -40,5 +40,9 @@
 </form>
 
 </div>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+</script>
 
 @endsection

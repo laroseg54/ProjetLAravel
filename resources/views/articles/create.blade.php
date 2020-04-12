@@ -17,17 +17,17 @@
 
     <div class="form-group">
         <label>Contenu</label>
-        <textarea class="form-control" name="content" placeholder="Entrez le contenu de l'article"></textarea>
+        <textarea class="form-control" id="summary-ckeditor" name="content" placeholder="Entrez le contenu de l'article"></textarea>
     </div>
 
 
-    <div class="form-group">
+    {{--<div class="form-group">
         <div class="custom-file">
             <input type="file" name="image" class="custom-file-input" id="validateCustomFile">
             <label class="custom-file-label" for="validateCustomFile">Choisir une image</label>
             <div class="invalid-feedback">Example invalid custom feedback</div>
         </div>
-    </div>
+    </div>--}}
 
     <div class="form-group">
       
@@ -40,5 +40,10 @@
 </form>
 
 </div>
+
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
+</script>
 
 @endsection

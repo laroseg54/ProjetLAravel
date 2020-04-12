@@ -20,12 +20,12 @@
     @foreach ($articles as $article)
     <ul class="list-group">
         <li class="list-group-item"><b>{{$article->post_title}}</b> </li>
-        <li class="list-group-item">{{substr($article->post_content,0,200)}} ....  <a href={{route('articles.show',$article->id)}}>Lire la suite de l'article </a></li>
+        <li class="list-group-item">{!!substr($article->post_content,0,200)!!} ....  <a href={{route('articles.show',$article->id)}}>Lire la suite de l'article </a></li>
       
     </ul>
     @endforeach
 
-
+    {{ $articles->links() }}
 </div>
 </div>
 @endif

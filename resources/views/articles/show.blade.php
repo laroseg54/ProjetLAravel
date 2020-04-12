@@ -30,12 +30,12 @@
 </style>
 
 <div class="container">
-<a href="/" type="button" class="btn btn-dark">Go Back</a>
+<a href={{URL::previous()}} type="button" class="btn btn-dark">Retour</a>
 <h2>Titre : {{$post->post_title}}</h2>
 
 <div>
 <h4>Auteur : {{$post->author->name}}</h4>
-<p>{{$post->post_content}}</p>
+<p>{!!$post->post_content!!}</p>
 </div>
 <small>Posté le : {{$post->created_at->translatedFormat('l, jS F Y à H:i')}}</small>
 <hr>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-group"> 
-        <textarea rows="3" cols="30" class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}" name="content" id="content" placeholder=" Entrez votre commentaire ...">{{ old('content') }}</textarea>
+        <textarea rows="3" cols="30" class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}" name="summary-ckeditor" id="content" placeholder=" Entrez votre commentaire ...">{{ old('content') }}</textarea>
         {!! $errors->first('content', '<div class="invalid-feedback">:message</div>') !!}
         <input  name="post_id" type="hidden" value={{$post->id}}>
         <input  name="user_id" type="hidden" value={{Auth::user()->id}}>
