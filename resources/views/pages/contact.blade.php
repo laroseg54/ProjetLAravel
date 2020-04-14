@@ -8,11 +8,10 @@
 </style>
 
 @section('content')
-<div class="container">
+<div class="container ">
 <h1> Nous contacter !! </h1>
 <form  method="POST" action="{{ url('contact')}}">
         {{ csrf_field() }}
-
         <div class="form-group">
         <label for="nom"> Nom </label>
         <input type="text" class="form-control {{ $errors->has('nom') ? 'is-invalid' : '' }}" name="nom" id="nom" placeholder=" Entrez votre nom " value="{{ old('nom') }}">

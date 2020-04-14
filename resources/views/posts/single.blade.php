@@ -32,10 +32,8 @@
 </style>
 
 <div class="container">
-
-<a href="/articles" type="button" class="btn btn-dark">Go Back</a>
+<a href={{URL::previous()}} type="button" class="btn btn-dark">Retour</a>
 <h2>Titre : {{$post->post_title}}</h2>
-
 <div>
 <h4>Auteur : {{$post->author->name}}</h4>
 <p>{{$post->post_content}}</p>
