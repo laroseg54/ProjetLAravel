@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Symfony\Component\Console\Input\Input;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CommentRequest extends FormRequest
@@ -13,6 +14,8 @@ class CommentRequest extends FormRequest
      */
     public function authorize()
     {
+        
+  
         return \Auth::check();
     }
 
@@ -26,7 +29,8 @@ class CommentRequest extends FormRequest
         return [
             'content' => 'required | max:1000',
             'post_id'=>'required',
-            'user_id'=>'required'
+            'user_id'=>'required',
+            'parent_id' => 'nullable|numeric'
         ];
     }
 }

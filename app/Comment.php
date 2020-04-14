@@ -23,8 +23,30 @@ class Comment extends Model
 
     public function user() {
         return $this->belongsTo('App\User');
+    } 
+
+    public function enfants(){
+        return $this->hasMany('App\Comment','parent_id', 'id');
     }
 
+    public function pere() {
+        return $this->belongsTo('App\Comment','parent_id','id');
+    } 
+
+    public function deleteLesEnfants($comment) {
+        
+        foreach($comment->enfants as $enfant){
+            if($enfant->enfants->count()> 0){
+                $enfant->deleteLesEnfants($enfant);
+            }
+            else{
+                $enfant->delete();
+            }
+           
+        }
+
+        $comment->delete();
+    } 
 
 }
 

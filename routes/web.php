@@ -36,7 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/administration','AdministrationController@administration')->name('administration');
 
-Route::post('/comments', 'CommentsController@store');
+Route::resource('articles.comments', 'CommentsController')->shallow();
 
 Route::get('{user}/articles','ArticlesController@showUserArticles')->name('user_articles');
 Route::resource('/articles', 'ArticlesController');

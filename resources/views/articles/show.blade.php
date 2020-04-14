@@ -3,31 +3,33 @@
 
 @section('content')
 
-<style>
+@push("styles")
+    <style>
 
-    #b_commentaire{
-     
-        float: right;
-        width:150px;
-        color:#FFF;
-        display:block;
-        text-decoration:none;
-        margin:0 auto;
-        border-radius:5px;
-        border:solid 1px #D94E3B;
-        background:#cb3b27;
-        text-align:center;
-        padding:10px 20px;
-      
-    }
+        #b_commentaire{
+        
+            float: right;
+            width:150px;
+            color:#FFF;
+            display:block;
+            text-decoration:none;
+            margin:0 auto;
+            border-radius:5px;
+            border:solid 1px #D94E3B;
+            background:#cb3b27;
+            text-align:center;
+            padding:10px 20px;
+        
+        }
 
-    h5{
+        h5{
 
-        display: block;
-    }
-    
+            display: block;
+        }
+        
 
-</style>
+    </style>
+@endpush
 
 <div class="container">
 <a href={{URL::previous()}} type="button" class="btn btn-dark">Retour</a>
@@ -40,67 +42,14 @@
 <small>Posté le : {{$post->created_at->translatedFormat('l, jS F Y à H:i')}}</small>
 <hr>
 
-@if (Auth::check())
-<button id="b_commentaire">Soumettre un commentaire</button>
-<div id="div_commentaire" style="display: none ">
-
-    @if ($post->image)
-<img src="{{ asset('storage/' . $post->image )}}" alt="post-image" class="img-thumbnail">
-    @endif
-
-{{-- Form for the comments --}}
-<form  class="mt-4" action="{{ url('comments')}}" method="POST">
-    {{ csrf_field() }}
-    
-    <div class="form-group">
-        <label for="content">Votre commentaire</label>
-    </div>
-
-    <div class="form-group"> 
-        <textarea rows="3" cols="30" class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}" name="summary-ckeditor" id="content" placeholder=" Entrez votre commentaire ...">{{ old('content') }}</textarea>
-        {!! $errors->first('content', '<div class="invalid-feedback">:message</div>') !!}
-        <input  name="post_id" type="hidden" value={{$post->id}}>
-        <input  name="user_id" type="hidden" value={{Auth::user()->id}}>
-    </div>   
-        <button type="submit" class="btn btn-dark"> Soumettre </button>
-
-    </form>
+<div>
+@include('comments.comments')
 </div>
-@else
-    <p>Connectez vous pour soumettre un commentaire ! </p> 
-@endif
 
-<h5><p>Commentaires<p></h5>
-
-<div id="affichage_commentaire">
-@foreach ($post->comments as $comment)
-    
-    <p>{{ $comment->content }}</p>
-    <small>{{ $comment->user->name }} : {{$comment->created_at->diffForHumans()}}</small>
-    <hr>
-    
-
-@endforeach
-</div>
 
 </div>
 
 @endsection
 
-
-<script >
-  
-  window.onload = function(){
-    let b_commentaire = document.querySelector('#b_commentaire');
-    let div_commentaire = document.querySelector('#div_commentaire');
-  
-    b_commentaire.onclick = function(){
-    
-        div_commentaire.style.display = "block";
-        b_commentaire.style.display = "none";
-    };
-  
-  }
-  </script>
 
 
