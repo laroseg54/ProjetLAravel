@@ -69,7 +69,7 @@ class ArticlesController extends Controller
 
        // $this->storeImage($post);
 
-        return redirect()->back()->with('success', 'Votre article a bien été enregistrée');
+        return redirect('/articles')->with('status', 'Votre article a bien été enregistrée');
     }
 
     /**
@@ -133,7 +133,7 @@ class ArticlesController extends Controller
          'post_title'=>$request->title,
          ]);
   
-        return redirect()->back()->with('success', 'Votre modification a bien été enregistrée');
+        return redirect()->back()->with('status', 'Votre modification a bien été enregistrée');
     }
 
     /**

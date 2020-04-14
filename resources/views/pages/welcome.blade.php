@@ -20,7 +20,7 @@
 
     @foreach ( $posts as $post )
            <div class="card  bg-light medium-8 large-10 columns">
-            <h6 class="list-group-item"><a href="http://localhost:8000/articles/{{$post->post_name}}">{{ $post->post_title }}</a></h6>
+            <h6 class="list-group-item"><a href="{{route('articles.show',$post->id)}}">{{ $post->post_title }}</a></h6>
            </div>  
     @endforeach
 
