@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);body {
+  background-color: whitesmoke;
+  font-family: font-family;
+}
+
+.mon-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #343a40;
+}
+

@@ -5,18 +5,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/main.js') }}" defer></script>
+
   <title>First Blog | Welcome</title>
+
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
  
+
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
 
   <!-- Start Top Bar -->
-  <div class="navbar navbar-dark bg-dark">
+
+  {{-- Intégration du SASS  dans le NavBar--}}
+  <div class="mon-container">
+
     <div  id="topheader" class="top-bar-left">
       <ul class="menu">
         <li class="active">Blog</li>
@@ -65,7 +74,8 @@
 
 
   <!-- We can now combine rows and columns when there's only one column in that row -->
-  <div class="row medium-8 large-7 columns">
+  
+  <div >
     @yield('content')
   </div>
 
@@ -74,6 +84,12 @@
   <script>
     $(document).foundation();
   </script>
+
+  <footer>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> Guillaume & Monia</a>
+    </div>
+  </footer>
 
 </body>
 
