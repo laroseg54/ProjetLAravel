@@ -23,7 +23,7 @@ Route::get('/users/{id}', function($id) {
 
 Route::get('/', 'HomeController@index'); 
 
-//Route::get('/articles/{post_name}', 'PostsController@show');
+// Route::get('/articles/{post_name}', 'PostsController@show');
 //Route::get('/articles', 'PostsController@articles')->middleware("auth");
 
 Route::get('/contact', 'ContactController@contact'); 

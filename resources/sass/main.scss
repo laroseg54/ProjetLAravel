@@ -22,9 +22,12 @@ body {
         padding: 0.5rem 1rem;
         background-color:#343a40;
     }
+    
+    
                
 .mon-container {
-    @include container();       
+    @include container();  
+         
 }
 
 
