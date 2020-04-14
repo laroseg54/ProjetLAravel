@@ -8,7 +8,7 @@
            
             <p>{{ $comment->content }}</p>
             <small>{{ $comment->user->name }} : {{$comment->created_at->diffForHumans()}}</small>  / <button onclick="afficherFormReponse(this,{{$comment->id}})" id = "rep_com">Répondre</button>
-            @if($comment->user_id==Auth::user()->id)
+            @if(Auth::check() && $comment->user_id==Auth::user()->id)
                 <div><a href="{{route('comments.edit',$comment)}}">Modifier </a> 
                 
                     <form style="display: inline" action="{{ route('comments.destroy',$comment) }}" method="post">
