@@ -133,7 +133,7 @@ class ArticlesController extends Controller
          'post_title'=>$request->title,
          ]);
   
-        return redirect()->back()->with('status', 'Votre modification a bien été enregistrée');
+        return redirect(route('articles.show',$post->id))->with('status', 'Votre modification a bien été enregistrée');
     }
 
     /**

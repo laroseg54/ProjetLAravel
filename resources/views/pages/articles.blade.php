@@ -8,7 +8,7 @@
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
-@endif
+    @endif
 
 <p><button type="button" ><a class="btn btn-warning " href="{{route('articles.create')}}">Ajouter un article</a> </button>
 @if(Auth::check())

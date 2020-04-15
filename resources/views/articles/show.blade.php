@@ -30,9 +30,14 @@
 
     </style>
 @endpush
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 
 <div class="container">
-<a href={{URL::previous()}} type="button" class="btn btn-dark">Retour</a>
+<a href="{{route('articles.index')}}" type="button" class="btn btn-dark">Retour aux articles</a>
 <h2>Titre : {{$post->post_title}}</h2>
 
 <div>
