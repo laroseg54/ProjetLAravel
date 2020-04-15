@@ -22,7 +22,7 @@ class ArticlesController extends Controller
       
     }
     /**
-     * Display a listing of the resource.
+     * Renvoie la liste des articles en commençant par le dernier crée , affiche 6 articles par page
      *
      * @return \Illuminate\Http\Response
      */
@@ -88,7 +88,12 @@ class ArticlesController extends Controller
            
      
     }
-
+    /**
+     * Affiche les articles d'un utilisateur.
+     *
+     * @param  int  $id identifiant d'un utilisateur
+     * @return \Illuminate\Http\Response
+     */
 
     public function showUserArticles($id)
     {
@@ -144,10 +149,10 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-            // Post::find($id)->delete(); 
-            // return redirect()->back()->with('success', 'Votre articlen a bien été supprimé');
+             Post::find($id)->delete(); 
+             return redirect()->back()->with('status', 'Votre article a bien été supprimé');
 
-            return view('articles.destroy');
+          
     }
 
 

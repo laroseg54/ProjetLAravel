@@ -1,10 +1,8 @@
+  
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\User;
-use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +15,17 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(App\Comment::class, function (Faker $faker) {
+    $post = App\Post::pluck('id')->toArray();
+    $user = App\User::pluck('id')->toArray();
+  
+    
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-          'password' => Hash::make('password'),
-          
+        //'post_author' => $faker->randomElement($users),
+        //'post_date' => now(),
+        'content'=> $faker->sentence(),
+        'post_id'=> $faker->randomElement($post),
+        'user_id'=> $faker->randomElement($user),
         
     ];
 });

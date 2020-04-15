@@ -10,7 +10,7 @@ class CommentsController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth',['except'=>['show']]);
     }
     /**
      * Display a listing of the resource.
@@ -89,7 +89,7 @@ class CommentsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Detruit le commentaire et ses enfants
      *
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response

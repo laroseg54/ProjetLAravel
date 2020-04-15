@@ -40,11 +40,12 @@ Route::resource('articles.comments', 'CommentsController')->shallow();
 
 Route::get('{user}/articles','ArticlesController@showUserArticles')->name('user_articles');
 Route::resource('/articles', 'ArticlesController');
+Route::resource('/users', 'UserController');
 
 //Laravel Socialite with github
 Route::get('/sign-in/{provider}', 'Auth\LoginController@provider');
 Route::get('/sign-in/{provider}/redirect', 'Auth\LoginController@redirectToProvider');
-
+Route::get('/administration/utilisateurs', 'AdministrationController@administration_users')->name('admin_user');
 
 
 // Route::get('/sign-in/google', 'Auth\LoginController@google');

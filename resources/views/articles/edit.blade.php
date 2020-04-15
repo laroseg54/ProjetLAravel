@@ -21,13 +21,7 @@
         <textarea class="form-control" id="summary-ckeditor" name="content">{{$post->post_content}}</textarea>
     </div>
 
-    <div class="form-group">
-        <div class="custom-file">
-            <input type="file" name="image" class="custom-file-input"  id="validateCustomFile">
-            <label class="custom-file-label" for="validateCustomFile">Choisir une image</label>
-            <div class="invalid-feedback">Example invalid custom feedback</div>
-        </div>
-    </div>
+
 
     <div class="form-group">
       

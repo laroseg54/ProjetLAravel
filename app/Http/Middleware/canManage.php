@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class canManage
 {
     /**
-     * Handle an incoming request.
-     *
+     * Verifie si l'utilisateur authentifie est bien l'utilisateur qui a crée l'article , dans le cas contraire renvoie une erreur sauf si l'utilisateur a le role admin.
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
@@ -24,7 +24,7 @@ class canManage
         }
 
         abort(403, 'Unauthorized action.');
-        //return redirect('/articles')->with('status', 'Acces interdit');;
+        
         
     }
 }

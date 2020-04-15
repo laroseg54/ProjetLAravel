@@ -26,7 +26,7 @@ Le guide d'installation de notre projet:
      
      
      2- CRUD des articles: 
-     - Les utilisateurs peuvent créer, consulter et modifier leurs articles.
+     - Les utilisateurs peuvent créer, consulter et modifier leurs articles (et seulement leurs articles pas ceux des autres utilisateurs).
      - Les utilisateurs ont la possibilité aussi supprimer leurs articles.
      - URL pour consulter les articles: http://localhost:8000/articles
      - URL pour créer des articles: http://localhost:8000/articles/create
@@ -39,9 +39,15 @@ Le guide d'installation de notre projet:
                         http://localhost:8000/register
      
      4- Ajout de roles utilisateurs: 
+
      - Ajout de 2 roles : un admin et un user ( consulter la migration create_roles_table)
      - Un utilisateur qui s'enregistre aura le role d'un user (Vous pouvez le vévifier en consultant la base de données)
-     - Création de deux middleware pour controler les actions des utilisateurs dans les articles ( app\Http\Middleware\canManage.php et app\Http\Middleware\isAdmin.php)
+     - les admins ont accès a un panneau d'administration à partir duquel il peut gérer les utilisateurs(CRUD des utilisateurs) et leurs articles
+     - le role user peut gérer uniquement ses articles  , le role admin peut gérer tout les articles (pas fait pour les commentaires)
+     - Création de deux middleware pour controler les actions des utilisateurs  ( app\Http\Middleware\canManage.php et app\Http\Middleware\isAdmin.php)
+     -URLs pour tester: http://localhost:8000/administration (l'accès sera refusé si vous n'êtes pas admin)
+
+     !! Pour tester le role admin , se connecter en utilsant le nom du dernier utilisateur generé dans la base , le mot de passe est password . Tous les autres utilisateur ont par défaut le role user !!                 
      
      5- Identification avec Google et Github en utilisant Socialite:
      Lorsque l'utilisateur appuie soit sur le bouton "Signin with Github" ou "Signin with Google", il sera directement authentifié vers la page d'acceuil de l'application, pareil dans le cas ou il veut s'enregistrer.
