@@ -1,78 +1,69 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Le guide d'installation de notre projet: 
+    
+    Les commandes à faire : 
+    
+      git clone git@github.com:laroseg54/ProjetLAravel.git
+      composer update
+      génerer la clé pour le fichier .env:  php artisan key:generate
+      créer la base de données 
+      modifier le fichier .env.exemple en .env en modifiant le chemin complet de la base de données
+      exécuter la commande php artisan migrate: refresh --seed
+      
+      Dans le cas ou vous n'avez pas nodejset npm  installé dans votre ordinateur, il faut installer en suivant le lien: https://www.npmjs.com/get-npm
+      
+      Au niveau de l'authentification en utilisant github, il faut avoir un nom pour votre compte github sinon ça va générer une erreur. 
+      
+      
+     Les parties que nous avons implémentés: 
+     
+     1- Gestion des commentaires : 
+     - Possibilité de placer des commentaires sous des articles.
+     - Possibilité de répondre à des commentaires
+     - Les admins peuvent modifier et supprimer tous les commentaires
+     - Les utilisateurs peuvent modifier et supprimer leurs commentaires (la suppression d'un commentaire entraine la suppression de ses enfants) 
+     - Exemple d'URL pour tester les commentaires: http://localhost:8000/articles/1
+     - Un autre URL pour voir un commentaire et ses enfants: http://localhost:8000/comments/1
+     
+     
+     2- CRUD des articles: 
+     - Les utilisateurs peuvent créer, consulter et modifier leurs articles.
+     - Les utilisateurs ont la possibilité aussi supprimer leurs articles.
+     - URL pour consulter les articles: http://localhost:8000/articles
+     - URL pour créer des articles: http://localhost:8000/articles/create
+     - Pour modifier et supprimer les articles : Sur la page des articles, vous cliquez sur le bouton voir mes articles et là vous allez trouver la liste de vos articles crées avec les deux boutons "modifier l'article" et "suuprimer l'article"
+     
+     
+     3- Identification / Authentification pour protéger l'accèes à la création , modification et suppression des articles  : 
+     Dans la page des articles, si vous essayez à appuyer sur le bouton ajouter un article vous serez envoyés vers la page de l'autentification / identifcation. 
+     -URLs pour tester: http://localhost:8000/login
+                        http://localhost:8000/register
+     
+     4- Ajout de roles utilisateurs: 
+     - Ajout de 2 roles : un admin et un user ( consulter la migration create_roles_table)
+     - Un utilisateur qui s'enregistre aura le role d'un user (Vous pouvez le vévifier en consultant la base de données)
+     - Création de deux middleware pour controler les actions des utilisateurs dans les articles ( app\Http\Middleware\canManage.php et app\Http\Middleware\isAdmin.php)
+     
+     5- Identification avec Google et Github en utilisant Socialite:
+     Lorsque l'utilisateur appuie soit sur le bouton "Signin with Github" ou "Signin with Google", il sera directement authentifié vers la page d'acceuil de l'application, pareil dans le cas ou il veut s'enregistrer.
+     - URLs pour tester : http://localhost:8000/login
+                          http://localhost:8000/register
+                          
+                          
+    6- Intégration graphique en utilisant Sass et Laravel Mix: 
+    Création d'un classe personnalisée "mon-container" au niveau de navbar pour le fichier : main.blade.php (Consulter le fichier main.scss) 
+    
+    
+     
+  
+     
+     
+     
+     
+     
+      
+      
+      
+      
+      
+      
+      
